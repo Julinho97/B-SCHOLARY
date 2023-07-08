@@ -1,0 +1,25 @@
+
+    require_once('db.php');
+
+        //permet de Ajouter une utilisateur  dans la 
+    function addEtudiant($etu_nom, $etu_prenom, $etu_date, $etu_phone, $etu_email, $etu_password, $etu_adresse, $etu_dossier, $sexy){
+        try{
+            $req = "INSERT INTO etudiant_igl2 VALUES (null ,'$etu_nom', '$etu_prenom', '$etu_date', '$etu_phone', '$etu_email', '$etu_password', '$etu_adresse', '$etu_dossier', '$sexy' default )";
+            return getConnexion()->exec($req);
+
+        }
+        catch (PDOException $error) {
+            die("Une erreur s'est produit à l'ajout de la utilisateur C " . $error->getMessage());
+        }
+    }
+
+     // Permet de recuperer la liste des réalisations depuis la bd
+     function listeEtudiants()
+     {
+         try {
+             $req = "SELECT * FROM etudiant_igl2 ";
+             return getConnexion()->query($req);
+         } catch (PDOException $error) {
+             die("Impossible de recuperer la liste des etudiants " . $error->getMessage());
+         }
+     }

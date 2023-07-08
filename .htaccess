@@ -1,0 +1,18 @@
+RewriteEngine On
+
+#Accueil
+RewriteRule ^admin$ indexAdmin.php
+RewriteRule ^home$ index.php
+RewriteRule ^etudiant$ view/partials/extract_etudiant/etudiant.php
+
+
+#controller 
+RewriteRule ^adminController$ controller/adminController.php
+RewriteRule ^etudiantController$ controller/etudiantController.php
+RewriteRule ^enseignantController$ controller/enseignantController.php
+
+
+#model
+RewriteRule ^adminBD$ model/admin_db.php
+RewriteRule ^etudiantBD$ model/etudiant_db.php
+RewriteRule ^enseignantBD$ model/enseignant_db.php
